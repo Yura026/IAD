@@ -13,11 +13,11 @@ import numpy as np
 from scipy import stats
 
 
-def filter_outliers_3sigma(x: np.ndarray, y: np.ndarray, check_y: bool = False):
+def filter_outliers_3sigma(x: np.ndarray, y: np.ndarray, check_y: bool = True):
     """
     Відкидання аномальних спостережень за правилом 3-сигма (ЛР 4, п. 3):
-    Значення вважається аномальним і відкидається, якщо |x_i - x_bar| > 3 * S_x
-    (опціонально також |y_i - y_bar| > 3 * S_y).
+    Значення вважається аномальним і відкидається, якщо:
+    |x_i - x_bar| > 3 * S_x  АБО  |y_i - y_bar| > 3 * S_y.
     """
     n = len(x)
     x_bar = float(np.sum(x) / n)

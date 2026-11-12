@@ -360,7 +360,7 @@ class Lab3App:
 
         # 0. Попередня обробка за правилом 3-сигма (ЛР 4, п. 3)
         if self.var_filter_3sigma.get():
-            self.x, self.y, removed_cnt = filter_outliers_3sigma(self.raw_x, self.raw_y, check_y=False)
+            self.x, self.y, removed_cnt = filter_outliers_3sigma(self.raw_x, self.raw_y, check_y=True)
             self.lbl_status.config(
                 text=f"N_поч={len(self.raw_x)} → N={len(self.x)} (відкинуто за 3σ: {removed_cnt})",
                 foreground="darkgreen"
